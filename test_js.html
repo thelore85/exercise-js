@@ -1,0 +1,346 @@
+
+
+/////////////////////////////////////
+// --------- CONSTROL FLOW ---------
+/////////////////////////////////////
+
+
+//IF / ELSE
+////////////////
+
+if (number > 18) {
+  document.write("Hello");
+} else {
+   document.write("Good bye!");
+}
+
+
+//SWITCH
+//////////////////
+
+var weekday = '';
+weekday = prompt('What day of the week is now');
+
+switch(weekday)
+{
+	case "monday":
+		console.log('Its going to be a long week');
+	break;
+	case "friday":
+		console.log('Party time!');
+	break;
+	default:
+		console.log('Just another boring day....');
+	break;
+}
+
+
+// WHILE
+//////////////////////////////
+
+let sum = 0;
+let number = 1;
+while (number <= 50) {
+  sum += number;
+  number++;
+}
+console.log("Sum = " + sum);
+
+
+//WHILE LOOP
+////////////////////////
+
+let count = 0;
+while (count < 5) {
+  console.log(count);
+  count++;
+}
+
+// DO-WHILE LOOP
+///////////////////////////
+
+let seconda = 0;
+do {
+  console.log(sec);
+  sec++;
+} while (sec < 5);
+
+
+//FOR LOOP
+//////////////////////////
+
+for (let i = 0; i < 10; i++) {
+  document.write("This is number" + " " + i);
+}
+
+
+// FOR - IN LOOPS
+///////////////////////////
+
+// to loop throgh the property of an object
+
+const dog = {
+  species: "Great Dane",
+  size: "Extra Large",
+  age: 3,
+  name: "Rocky"
+}
+
+for(items in dog){
+  console.log(dog[items]);
+}
+
+//FOR-OF LOOPS
+/////////////////////////
+
+//to loop trhogh element of an array
+
+const array = [1, 2, 3];
+for (const element of array) {
+  console.log(element);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+////////////////////////////////////////////////////
+/// ------------- FUNCTION  ----------------
+/////////////////////////////////////////////////
+
+
+//traditional
+///////////////////////////////////////////
+
+function saluto(saluto) {
+  console.log(saluto)
+}
+
+saluto('hey, come stai? spero tutto bene')
+
+
+//anonymus function 
+///////////////////////////////////
+
+let ciao = function() {
+  console.log('hey hey hey!!')
+}
+
+ciao();
+
+
+//arrow function
+//////////////////////////////
+
+const arrow = (par) => {
+  console.log('this is a ' + par)
+}
+
+arrow('arrow function');
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+///////////////////////////////////////////////
+////-------- PROMISES AND CALLBACMK  ----------
+///////////////////////////////////////////////
+
+
+//CALLBACK FUNCTION
+///////////////////////////////////////
+
+const goodJob = (callBackFunction) => {
+
+  console.log("I'm doing a great job here, when i'm done i'll call yuo back");
+  
+  setTimeout(
+    function() {
+      callMeBack();
+    }, 3000
+  );
+}
+
+const callMeBack = () => {
+  console.log('RIIIIIIIIIIIIIIING, Calling you back right now')
+}
+
+goodJob(callMeBack)
+
+
+//USING PROMISE
+////////////////////////////////
+
+const myPromise = new Promise((res, rej) => {
+  
+  const message = 'this is the secrete we have to keep';
+
+  setTimeout(()=>{
+   res(message)
+  }, 1000);
+
+});
+
+myPromise
+.then(res => console.log(res)) // use promise response to run a statement
+
+
+//USING ASYNC - AWAIT (TRY/CATCH)
+/////////////////////////////////////////////
+
+//write async function like sync code
+const newFun = async () => {
+  let res = await myPromise;
+  console.log(res)
+}
+
+newFun()
+
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+///////////////////////////////////
+// -----------  THIS  ------------
+///////////////////////////////////
+
+
+const obj = {
+  nome: 'lorenzo',
+  eta: 38,
+  citta: 'milano',
+  sport: 'tennis',
+  play: () => { console.log('prima partita:', this)},
+  playAgain: { tennis: ()=>{console.log('seconda partita: ', this)}},
+  oldSchool: function(){console.log(this)},
+  oldBoy: function(){return { tennis: ()=>{console.log('seconda partita: ', this)}}},
+}
+
+obj.play();
+obj.playAgain.tennis();
+obj.oldSchool();
+obj.oldBoy().tennis();
+
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////
+
+////////////////////////////////////
+//  ------- CLASS  and NEW --------
+////////////////////////////////////
+
+
+//CLASS PROTOTYPE
+//////////////////////////////////
+
+//define the template using constructor
+class Persona {
+  constructor(nome, età) {
+    this.nome = nome;
+    this.età = età;
+  }
+
+  // declare outside the constr. all properties that can be apply to the entire class
+  saluta() {
+    console.log(`hey hey, io sono ${this.nome} e sono un ${Persona.specie}`)
+  }
+  // use 'static' for property, that are common to all instances
+  static specie = 'uomo sapiens' 
+}
+
+// use NEW to create instrance from class prototype
+const persona1 = new Persona('Alice', 30);
+persona1.saluta(); // Stampa "Ciao, sono Alice!"
+
+
+
+//NEW prototype
+/////////////////////////////
+
+//set the prototype
+function Player(name, age, gender, city, sport) {
+  this.age = age;
+  this.name = name;
+  this.gender = gender;
+  this.city = city;
+  this.sport = sport;
+}
+
+//use prototype for common property (like method or common attribure)
+Player.prototype.presentation = function() {
+  console.log(`hey, this is ${this.name}, i'm a ${this.sport} player`)
+}
+
+Player.prototype.race = 'human';
+
+// create instance with NEW (store it in a var)
+const lorenzo = new Player('lorenzo', 38, 'man', 'milano', 'tennis');
+
+//call the instance/method
+lorenzo.presentation()
+lorenzo.race
+
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////
+
+////////////////////////////////////
+//  ---- PRACTICE AND PRACTICE -----
+////////////////////////////////////
+
+
+//how to make an average
+let average = (num1, num2) => {
+  let ave = (num1 + num2)/2
+  return ave;
+}
+
+let average2 = (num1, num2) => {
+  let arr = [num1, num2]
+  let sum = 0;
+
+  for(const el of arr){
+    sum =+ el;
+
+  }
+  return ave;
+}
+
+
+// OBJECT - how to add a property
+function addProperty(obj, key) {
+  // your code here
+  obj[key] = true // note the [] notation !!
+  return obj;
+}
+
+// OBJECT - delete property
+function removeProperty(obj, key) {
+  // your code here
+ delete obj[key];
+ return obj 
+}
+
+//OBJECT - add an object inside an object
+function addObjectProperty(obj1, key, obj2) {
+  // Crea un nuevo objeto con las propiedades de obj2
+  var newObj = {
+    name: obj2.name,
+    role: obj2.role
+  };
+
+  // Asigna el nuevo objeto a la propiedad con el nombre especificado en key
+  obj1[key] = newObj;
+}
+
+
+
+
