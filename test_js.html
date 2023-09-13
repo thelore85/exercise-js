@@ -361,8 +361,10 @@ function joinArrays(arr1) {
   return arr
   
 }
-
 joinArrays(['c', 'i', 'a', 'o']);  // --> 'ciao'
+
+
+
 
 // ARRAY - 'join' two or more array with CONCAT()
 function joinArrays(arr1, arr2) {
@@ -371,5 +373,65 @@ function joinArrays(arr1, arr2) {
   console.log(arr)
   return arr
 }
-
 joinArrays([1, 2], [3, 4]); // -> [1, 2, 3, 4]
+
+
+
+
+// STRING - loop throgh the string characters
+function countCharacter(str, char) {
+  // your code here
+  let sum = 0;
+  for( el of str){
+      if(char === el ){
+          sum += 1
+      }
+  }
+
+  console.log(sum)
+  return sum    
+}
+countCharacter('I am a hacker', 'a'); // --> 3
+
+
+
+
+// ARRAY / STRING - genearte an array from a string using SPLIT()
+function getAllLetters(str) {
+  // your code here
+  return str.split(''); // passing a string, it gives the element to break (if use ' ' it break any words)
+}
+
+let output = getAllLetters('Radagast');
+console.log(output); // --> ['R', 'a', 'd', 'a', 'g', 'a', 's', 't']
+
+
+
+
+
+// ARRAY / STRING - to change the content inside a strin. transform it in array and than string again:
+// NB: try to use replaceAll instead :)
+
+function convertDoubleSpaceToSingle(str) {
+  // your code here
+  let arrString = str.split('  ')
+  let newArr = arrString.join(' ');
+  return newArr
+}
+
+let output = convertDoubleSpaceToSingle("string  with  double  spaces");
+console.log(output); // --> "string with double spaces"
+
+
+
+
+
+// STRING - compare words length without using 'if' statement
+function findMinLengthOfThreeWords(a, b, c) {
+  const lengths = [a.length, b.length, c.length];
+  const minLength = Math.min(...lengths);
+  console.log(minLength);
+  return minLength;
+}
+
+findMinLengthOfThreeWords('panna', 'mag', 'ciliegia');
