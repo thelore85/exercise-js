@@ -435,3 +435,42 @@ function findMinLengthOfThreeWords(a, b, c) {
 }
 
 findMinLengthOfThreeWords('panna', 'mag', 'ciliegia');
+
+
+
+
+//STRING - return the longhest word
+function getLongestOfThreeWords(word1, word2, word3) {
+
+  let arr = [word1, word2, word3];
+  let long = Math.max(word1.length, word2.length, word3.length)
+
+  for(el of arr){
+      if(el.length === long){
+          return el 
+      }
+  }
+}
+
+let output = getLongestOfThreeWords('these', 'three', 'words');
+console.log(output); // --> 'these'
+
+
+
+
+// ARRAY - using FILTER()
+function filterOddLengthWords(words) {
+  // your code here
+
+  let newArr = words.filter(function(word){
+      return word.length % 2 !== 0;
+  })
+
+  return newArr
+  
+}
+
+let output = filterOddLengthWords(['there', 'it', 'is', 'now']);
+console.log(output); // --> ['there', 'now']
+
+
