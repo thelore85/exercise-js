@@ -474,3 +474,97 @@ let output = filterOddLengthWords(['there', 'it', 'is', 'now']);
 console.log(output); // --> ['there', 'now']
 
 
+
+
+
+
+
+/////////////////////////////////////////////////
+// INTERVIEW TEST
+
+	
+
+const decodeWords = () => {
+  
+   wordList = ['CANAL', 'KILLO', 'HOLA']
+   phonenumbers = ['+3223226253', '+4452329043', '+3895204652', '+73689243434', '+1246523424', '+54226254652', '+12443454556', '+98349823432', '+34238957344', '+93745455602']
+   decodedWords = []
+
+   const tecla = {  '2' : 'abc',
+                    '3' : 'def',
+                    '4' : 'ghi',
+                    '5' : 'jkl',
+                    '6' : 'mno',
+                    '7' : 'pqrs',
+                    '8' : 'tuv',
+                    '9' : 'wxyz',
+                  }
+
+
+   for(word of wordList){
+    
+    let decodedWord = '';
+     
+    for( letter of word){
+     // console.log(letter)
+     for( number in tecla){
+        // console.log(tecla[number].includes(letter.toLowerCase()))
+        if(tecla[number].includes(letter.toLowerCase())){
+          decodedWord += number
+        }
+      }
+    }
+  
+   decodedWords.push(decodedWord)
+    
+   }
+   
+   
+   // for loop of phonenumbers
+   for(numbers of phonenumbers){
+      // for loop of decodedWords
+  
+     for(code of decodedWords){
+        if(numbers.includes(code)){
+          console.log(numbers)
+        }
+        
+        
+        
+ 
+     }
+   }
+   
+  // console.log('decode words: ', decodedWords)
+      // check if phonen includes decoded words
+   
+   
+  
+}
+
+decodeWords()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
